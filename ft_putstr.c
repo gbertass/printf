@@ -6,7 +6,7 @@
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:19:03 by gbertass          #+#    #+#             */
-/*   Updated: 2023/05/24 11:35:12 by gbertass         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:11:45 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putstr(char *str)
 		write(1, &str[i], 1);
 		i++;
 	}
-}
+}outroteste
 
 /*int	main()
 {
