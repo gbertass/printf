@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 11:19:03 by gbertass          #+#    #+#             */
-/*   Updated: 2023/05/24 12:16:41 by gbertass         ###   ########.fr       */
+/*   Created: 2023/05/24 11:26:15 by gbertass          #+#    #+#             */
+/*   Updated: 2023/05/24 12:16:28 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr(char *str)
+void	ft_putchar(char *c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i]  != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	write(1, &c, 1);
 }
 
-/*int	main()
+/*int	main(void)
 {
-	char *str = "superMario";
-	ft_putstr(str);
-	write(1, "\n", 1);
+	ft_putchar('w');
+	return (0);
 }*/
