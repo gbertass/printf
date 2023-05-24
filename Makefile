@@ -1,10 +1,21 @@
-NAME = 
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/24 11:04:25 by gbertass          #+#    #+#              #
+#    Updated: 2023/05/24 12:00:13 by gbertass         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-PART1 = 
 
-SRC = ${PART1}
+NAME = libftprintf.a
+
+SRC = ft_putchar.c ft_putnbr.c ft_strchr.c
+
 OBJS = ${SRC:.c=.o}
-BONUS_OBJ = ${BONUS:.c=.o}
 
 INCLUDE = -I .
 
