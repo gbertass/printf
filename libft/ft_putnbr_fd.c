@@ -1,68 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 11:34:52 by gbertass          #+#    #+#             */
-/*   Updated: 2023/05/24 11:40:27 by gbertass         ###   ########.fr       */
+/*   Created: 2023/04/27 14:26:27 by gbertass          #+#    #+#             */
+/*   Updated: 2023/05/13 16:26:24 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include "libft.h"
 
-#include <unistd.h>
-
-void	ft_rnbr(int nb)
+void	ft_function(int n, int fd)
 {
 	int	a[10];
 	int	i;
 	int	c;
 
 	i = 0;
-	if (nb < 0)
+	if (n < 0)
 	{
-		write (1, "-", 1);
-		nb = nb * -1;
+		ft_putchar_fd('-', fd);
+		n = n * -1;
 	}
-	while (nb != 0)
+	while (n != 0)
 	{
-		a[i] = (nb % 10) + 48;
+		a[i] = (n % 10) + 48;
 		i++;
-		nb = nb / 10;
+		n = n / 10;
 	}
 	while (i > 0)
 	{
 		i--;
 		c = a[i];
-		write(1, &c, 1);
+		ft_putchar_fd(c, fd);
 	}
 }
 
-void	ft_putnbr(int nb)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (nb == 0)
+	if (n == 0)
 	{
-		write(1, "0", 1);
+		ft_putchar_fd('0', fd);
 	}
-	else if (nb == -2147483648)
+	else if (n == -2147483648)
 	{
-		write(1, "-2147483648", 11);
+		ft_putstr_fd("-2147483648", fd);
 	}
 	else
 	{
-		ft_rnbr(nb);
+		ft_function(n, fd);
 	}
 }
 
-/*int	main(void)
+/*int	main()
 {
-	ft_putnbr(10);
+	ft_putnbr_fd(10, 1);
 	write(1, "\n", 1);
-	ft_putnbr(-2147483648);
+	ft_putnbr_fd(-2147483648, 1);
 	write(1, "\n", 1);
-	ft_putnbr(0);
+	ft_putnbr_fd(0, 1);
 	write(1, "\n", 1);
 	return (0);
 }*/

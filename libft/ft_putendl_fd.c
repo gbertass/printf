@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 11:26:15 by gbertass          #+#    #+#             */
-/*   Updated: 2023/05/24 12:16:28 by gbertass         ###   ########.fr       */
+/*   Created: 2023/04/27 15:24:16 by gbertass          #+#    #+#             */
+/*   Updated: 2023/05/13 16:25:55 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char *c)
+#include "libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	write(1, &c, 1);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
 
-/*int	main(void)
+/*int	main()
 {
-	ft_putchar('w');
-	return (0);
+	char *s = "superMarioWorld";
+	ft_putendl_fd(s, 1);
 }*/
