@@ -6,7 +6,7 @@
 #    By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 11:04:25 by gbertass          #+#    #+#              #
-#    Updated: 2023/05/24 12:00:13 by gbertass         ###   ########.fr        #
+#    Updated: 2023/06/10 16:59:36 by gbertass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,14 +29,18 @@ CFLAGS = -Wall -Wextra -Werror
 		${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o} 
 
 $(NAME): ${OBJS}
+		make -C libft
+		cp libft/libft.a ${NAME}
 		ar rcs ${NAME} ${OBJS}
 
 all:	${NAME}
 
 clean:
+		make clean -C libft
 		${RM} ${OBJS} ${BONUS_OBJ}
 
 fclean: clean
+		make fclean -C libft
 		${RM} ${NAME} 
 
 tclean: clean
@@ -44,7 +48,7 @@ tclean: clean
 
 re: fclean all
 
-teste:
+teste:	${NAME}
 		${CC} ${CFLAGS} ${INCLUDE} main_part1.c ${NAME} -o teste
 
 .PHONY: all clean fclean re
