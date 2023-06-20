@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_puthexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 15:24:16 by gbertass          #+#    #+#             */
-/*   Updated: 2023/05/13 16:25:55 by gbertass         ###   ########.fr       */
+/*   Created: 2023/06/20 15:47:05 by gbertass          #+#    #+#             */
+/*   Updated: 2023/06/20 17:26:24 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_puthexa(unsigned long nb, char *base)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	int	result;
+
+	result = 0;
+	if (nb < 16)
+	{
+		result += ft_putchar(base[nb]);
+		return (result);
+	}
+	ft_puthexa(nb / 16, base);
+	result += ft_putchar(base[nb % 16]);
+	return (result);
 }
-
-/*int	main()
-{
-	char *s = "superMarioWorld";
-	ft_putendl_fd(s, 1);
-}*/

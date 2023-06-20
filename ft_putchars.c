@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchs.c                                        :+:      :+:    :+:   */
+/*   ft_putchars.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:46:49 by gbertass          #+#    #+#             */
-/*   Updated: 2023/06/10 16:52:36 by gbertass         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:25:50 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 int	ft_putchar(char c)
 {
-	return(write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 int	ft_putstr(char *s)
 {
-	int count;
-	
+	int	count;
+
 	count = 0;
-	while(*s)
+	if (!s)
+		count += write(1, "(null)", 6);
+	while (*s)
 	{
 		count += ft_putchar(*s++);
 	}
 	if (!s)
-		return(0);
+		return (0);
 	return (count);
 }

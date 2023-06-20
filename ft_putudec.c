@@ -1,69 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putudec.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 17:52:24 by gbertass          #+#    #+#             */
-/*   Updated: 2023/05/13 18:17:34 by gbertass         ###   ########.fr       */
+/*   Created: 2023/06/20 17:29:38 by gbertass          #+#    #+#             */
+/*   Updated: 2023/06/20 17:29:44 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-//Coverts the integer n into a character string. 
-//The string is placed in the buffer passed (must be large enough).
+#include "libftprintf.h"
 
-int	ft_intlen(long nb)
+int	ft_intlen(unsigned int nb)
 {
 	int	len;
 
 	len = 0;
-	if (nb < 0)
-	{
-		len++;
-		nb = nb * -1;
-	}
+	if (nb == 0)
+		return (1);
 	while (nb > 0)
 	{
 		nb = nb / 10;
 		len++;
 	}
-	if (len == 0)
-		len++;
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_utoa(unsigned int nb)
 {
 	char	*str;
 	int		len;
-	long	nb;
 
-	nb = n;
 	len = ft_intlen(nb);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == 0)
 		return (NULL);
 	str[len] = '\0';
-	if (nb < 0)
+	while (len > 0)
 	{
-		str[0] = '-';
-		nb = nb * -1;
-	}
-	len--;
-	while (len >= 0 && str[len] != '-')
-	{
-			str[len] = (nb % 10) + '0';
-			nb = nb / 10;
-			len--;
+		len--;
+		str[len] = (nb % 10) + '0';
+		nb = nb / 10;
 	}
 	return (str);
 }
 
-/*int	main()
+int	ft_putunsg_dec(unsigned int nb)
 {
-	int n = -237;
-	printf("Valor de n:%d\n", n);
-	printf("Funcao ft_itoa:%s\n", ft_itoa(n));
-}*/
+	int		count;
+	char	*str;
+
+	count = 0;
+	str = ft_utoa(nb);
+	count = ft_putstr(str);
+	free(str);
+	return (count);
+}
