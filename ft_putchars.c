@@ -6,7 +6,7 @@
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:46:49 by gbertass          #+#    #+#             */
-/*   Updated: 2023/06/20 17:25:50 by gbertass         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:39:51 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_putstr(char *s)
 
 	count = 0;
 	if (!s)
-		count += write(1, "(null)", 6);
+		return (write(1, "(null)", 6));
 	while (*s)
 	{
 		count += ft_putchar(*s++);

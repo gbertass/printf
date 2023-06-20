@@ -6,7 +6,7 @@
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:50:52 by gbertass          #+#    #+#             */
-/*   Updated: 2023/06/20 17:23:51 by gbertass         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:14:16 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_funcfind(const char letter, va_list arg)
 	else if (letter == 's')
 		count += ft_putstr(va_arg(arg, char *));
 	else if (letter == 'p')
-	count += ft_pointerhex(va_arg(arg, void *));
+	count += ft_putpointer(va_arg(arg, unsigned long));
 	else if (letter == 'd' || letter == 'i')
 		count += ft_putnbr(va_arg(arg, int));
 	else if (letter == 'u')

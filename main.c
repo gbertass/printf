@@ -6,7 +6,7 @@
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:46:11 by gbertass          #+#    #+#             */
-/*   Updated: 2023/06/20 17:18:21 by gbertass         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:27:19 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,26 @@ int	main()
 	int	m; //meu print
 	i = 0;
 	m = 0;
+	
+	void *ptr = (void *)0x7ffeefbff5c8;
+	char *str = NULL;
+
+	i = printf(" %p \n", (void *)-1);
+	printf(" Valor: %d \n", i);
+	i = printf(" %p \n", (void *)16);
+	printf(" Valor: %d \n", i);
+	i = printf(" %p \n", (void *)17);
+	printf(" Valor: %d \n\n", i);
+
+	m = ft_printf(" %p \n", (void *)-1);
+	printf(" Valor: %d \n", m);
+	m = ft_printf(" %p \n", (void *)16);
+	printf(" Valor: %d \n", m);
+	m = ft_printf(" %p \n", (void *)17);
+	printf(" Valor: %d \n\n", m);
+
+	printf("o: Endereço do ponteiro: %p\n", ptr);
+	ft_printf("m: Endereço do ponteiro: %p\n\n", ptr);
 
 	printf("o: número hexadecimal minúsculo -> %x\n", 10);
 	ft_printf("m: número hexadecimal minúsculo -> %x\n\n", 10);
@@ -41,6 +61,9 @@ int	main()
 
 	printf("o: número decimal sem sinal: %u\n", -5);
 	ft_printf("m: número decimal sem sinal: %u\n\n", -5);
+	
+	printf("o: Ponteiro nulo com espec. s: %s\n", str);
+	ft_printf("m: Ponteiro nulo com espec. s: %s\n\n", str);
 	
 	return (0);
 }

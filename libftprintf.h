@@ -6,7 +6,7 @@
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:41:34 by gbertass          #+#    #+#             */
-/*   Updated: 2023/06/20 17:39:24 by gbertass         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:12:57 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	ft_putstr(char *s);
 int	ft_putnbr(long n);
 int	ft_putunsg_dec(unsigned int nb);
 int	ft_puthexa(unsigned long nb, char *base);
+int	ft_putpointer(unsigned long ptr);
 
 #endif
