@@ -6,11 +6,11 @@
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:50:52 by gbertass          #+#    #+#             */
-/*   Updated: 2023/06/20 18:14:16 by gbertass         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:33:16 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_funcfind(const char letter, va_list arg)
 {
@@ -28,9 +28,9 @@ int	ft_funcfind(const char letter, va_list arg)
 	else if (letter == 'u')
 		count += ft_putunsg_dec(va_arg(arg, unsigned int));
 	else if (letter == 'x')
-		count += ft_puthexa(va_arg(arg, unsigned long), "0123456789abcdef");
+		count += ft_puthexa(va_arg(arg, unsigned int), "0123456789abcdef");
 	else if (letter == 'X')
-		count += ft_puthexa(va_arg(arg, unsigned long), "0123456789ABCDEF");
+		count += ft_puthexa(va_arg(arg, unsigned int), "0123456789ABCDEF");
 	else if (letter == '%')
 		count += ft_putchar('%');
 	return (count);

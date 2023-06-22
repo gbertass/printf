@@ -6,11 +6,11 @@
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:46:49 by gbertass          #+#    #+#             */
-/*   Updated: 2023/06/20 18:39:51 by gbertass         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:58:46 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

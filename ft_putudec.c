@@ -6,11 +6,11 @@
 /*   By: gbertass <gbertass@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:29:38 by gbertass          #+#    #+#             */
-/*   Updated: 2023/06/20 17:29:44 by gbertass         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:58:51 by gbertass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_intlen(unsigned int nb)
 {
