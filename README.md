@@ -1,8 +1,8 @@
 # Projeto: Reimplementação da Função `printf()`
 
 ## Introdução
-A função printf() em C é usada para imprimir informações na tela.
-Neste projeto, nosso objetivo é reimplementar a função `printf()` da biblioteca C padrão (`libc`). A nossa versão, chamada de `ft_printf()`, deverá atender a uma série de requisitos específicos. Este documento fornece as instruções e detalhes técnicos para realizar essa tarefa, explicando a lógica por trás das conversões, o uso de funções variádicas e outras informações técnicas importantes.
+**A função printf() em C é usada para imprimir informações na tela.
+**Neste projeto, nosso objetivo é reimplementar a função `printf()` da biblioteca C padrão (`libc`). A nossa versão, chamada de `ft_printf()`, deverá atender a uma série de requisitos específicos. Este documento fornece as instruções e detalhes técnicos para realizar essa tarefa, explicando a lógica por trás das conversões, o uso de funções variádicas e outras informações técnicas importantes.
 
 ## Requisitos
 1. **Sem Gerenciamento de Buffer**: Não implementaremos o gerenciamento de buffer como o `printf()` original. Nossa função `ft_printf()` irá imprimir diretamente os valores.
@@ -39,10 +39,10 @@ As conversões referem-se aos caracteres após o sinal de `%` que especificam o 
 1. **O Que São Funções Variádicas?
 Funções variádicas são aquelas que podem receber um número variável de argumentos. Em C, essas funções são implementadas utilizando a biblioteca <stdarg.h>, que fornece ferramentas para manipular os argumentos passados para a função.
 
-2. **Como Funciona o Armazenamento de Argumentos?
+2. Como Funciona o Armazenamento de Argumentos?
 **Quando uma função é chamada, os argumentos são armazenados na pilha de memória em ordem inversa, ou seja, o primeiro argumento é armazenado na última posição e o último argumento é armazenado na primeira posição.
 
-3. **Acessando os Argumentos Variádicos
+3. Acessando os Argumentos Variádicos
 **Para acessar os argumentos passados para uma função variádica, utilizamos as macros definidas em <stdarg.h>, como:
 
 ### Funções Variádicas
@@ -52,6 +52,6 @@ Funções variádicas são aquelas que podem receber um número variável de arg
 - **`va_end(va_list args)`**: Finaliza o uso do ponteiro `args`, liberando os recursos.
 
 
-4. **Para declarar uma função variádica, utilizamos a seguinte sintaxe:
+4. Para declarar uma função variádica, utilizamos a seguinte sintaxe:
   ```c
    tipo_de_retorno nome_da_função(tipo_de_dado nome_do_argumento, ...);
