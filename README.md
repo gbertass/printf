@@ -40,14 +40,17 @@ As conversões referem-se aos caracteres após o sinal de `%` que especificam o 
 Funções variádicas são aquelas que podem receber um número variável de argumentos. Em C, essas funções são implementadas utilizando a biblioteca <stdarg.h>, que fornece ferramentas para manipular os argumentos passados para a função.
 
 2. **Como Funciona o Armazenamento de Argumentos?
-Quando uma função é chamada, os argumentos são armazenados na pilha de memória em ordem inversa, ou seja, o primeiro argumento é armazenado na última posição e o último argumento é armazenado na primeira posição.
+**Quando uma função é chamada, os argumentos são armazenados na pilha de memória em ordem inversa, ou seja, o primeiro argumento é armazenado na última posição e o último argumento é armazenado na primeira posição.
 
 3. **Acessando os Argumentos Variádicos
-Para acessar os argumentos passados para uma função variádica, utilizamos as macros definidas em <stdarg.h>, como:
+**Para acessar os argumentos passados para uma função variádica, utilizamos as macros definidas em <stdarg.h>, como:
 
-va_start(va_list args, last): Inicializa o ponteiro args para acessar os argumentos. O segundo parâmetro, last, é o último argumento fixo da função.
-va_arg(va_list args, tipo): Acessa o próximo argumento da lista, de acordo com o tipo especificado.
-va_end(va_list args): Finaliza o uso do ponteiro args, liberando os recursos.
+### Funções Variádicas
+
+- **`va_start(va_list args, last)`**: Inicializa o ponteiro `args` para acessar os argumentos. O segundo parâmetro, `last`, é o último argumento fixo da função.
+- **`va_arg(va_list args, tipo)`**: Acessa o próximo argumento da lista, de acordo com o tipo especificado.
+- **`va_end(va_list args)`**: Finaliza o uso do ponteiro `args`, liberando os recursos.
+
 
 4. **Para declarar uma função variádica, utilizamos a seguinte sintaxe:
   ```c
