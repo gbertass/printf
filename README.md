@@ -1,57 +1,55 @@
-# Projeto: Reimplementação da Função `printf()`
+# Project: Reimplementation of the `printf()` Function
 
-## Introdução
-A função printf() em C é usada para imprimir informações na tela.
-Neste projeto, nosso objetivo é reimplementar a função `printf()` da biblioteca C padrão (`libc`). A nossa versão, chamada de `ft_printf()`, deverá atender a uma série de requisitos específicos. Este documento fornece as instruções e detalhes técnicos para realizar essa tarefa, explicando a lógica por trás das conversões, o uso de funções variádicas e outras informações técnicas importantes.
+## Introduction
+The `printf()` function in C is used to print information to the screen. In this project, our goal is to reimplement the `printf()` function from the standard C library (`libc`). Our version, called `ft_printf()`, should meet a series of specific requirements. This document provides the instructions and technical details to complete this task, explaining the logic behind the conversions, the use of variadic functions, and other important technical information.
 
-## Requisitos
-1. **Sem Gerenciamento de Buffer**: Não implementaremos o gerenciamento de buffer como o `printf()` original. Nossa função `ft_printf()` irá imprimir diretamente os valores.
-2. **Conversões Suportadas**: Nossa função deverá lidar com as seguintes conversões:
-   - `c` - Caractere
+## Requirements
+1. **No Buffer Management**: We will not implement buffer management like the original `printf()`. Our `ft_printf()` function will print the values directly.
+2. **Supported Conversions**: Our function must handle the following conversions:
+   - `c` - Character
    - `s` - String
-   - `p` - Endereço de memória
-   - `d` - Inteiro (base 10)
-   - `i` - Inteiro
-   - `u` - Inteiro sem sinal (base 10)
-   - `x` - Inteiro (base 16) minúsculo
-   - `X` - Inteiro (base 16) maiúsculo
-   - `%` - Caractere `%`
-3. **Comparação com `printf()` Original**: A função será comparada com o `printf()` original para verificar sua compatibilidade e comportamento.
-4. **Uso do `ar`**: Devemos usar o comando `ar` para criar nossa biblioteca, evitando o uso do `libtool`.
-5. **Local da Biblioteca**: A biblioteca `libftprintf.a` deve ser criada na raiz do repositório.
+   - `p` - Memory address
+   - `d` - Integer (base 10)
+   - `i` - Integer
+   - `u` - Unsigned integer (base 10)
+   - `x` - Integer (base 16, lowercase)
+   - `X` - Integer (base 16, uppercase)
+   - `%` - Percent character
+3. **Comparison with Original `printf()`**: The function will be compared to the original `printf()` to check for compatibility and behavior.
+4. **Use of `ar`**: We must use the `ar` command to create our library, avoiding the use of `libtool`.
+5. **Library Location**: The `libftprintf.a` library must be created at the root of the repository.
 
-## Conversões
-As conversões referem-se aos caracteres após o sinal de `%` que especificam o tipo de dado a ser impresso. A tabela a seguir descreve as conversões que implementaremos e as funções auxiliares utilizadas para cada tipo de dado:
+## Conversions
+The conversions refer to the characters following the `%` symbol that specify the type of data to be printed. The following table describes the conversions we will implement and the auxiliary functions used for each data type:
 
-| Especificador | Tipo de Dado                    | Função             | Função na libft?  |
-|---------------|----------------------------------|--------------------|-------------------|
-| `c`           | Caractere                        | `ft_putchar_fd()`  | Sim               |
-| `s`           | String                           | `ft_putstr()`      | Sim               |
-| `p`           | Endereço de memória              | `ft_putpoint()`    | Não               |
-| `d`           | Inteiro (base 10)                | `ft_putnbr_fd()`   | Sim               |
-| `i`           | Inteiro                          | `ft_putnbr_fd()`   | Sim               |
-| `u`           | Inteiro sem sinal (base 10)      | `ft_putunsignbr()` | Não               |
-| `x`           | Inteiro (base 16) minúsculo      | `ft_puthex()`      | Não               |
-| `X`           | Inteiro (base 16) maiúsculo      | `ft_puthex()`      | Não               |
-| `%`           | Caractere `%`                    | `ft_putchar_fd()`  | Sim               |
+| Specifier    | Data Type                       | Function            | Function in libft? |
+|--------------|----------------------------------|---------------------|--------------------|
+| `c`          | Character                        | `ft_putchar_fd()`   | Yes                |
+| `s`          | String                           | `ft_putstr()`       | Yes                |
+| `p`          | Memory address                   | `ft_putpoint()`     | No                 |
+| `d`          | Integer (base 10)                | `ft_putnbr_fd()`    | Yes                |
+| `i`          | Integer                          | `ft_putnbr_fd()`    | Yes                |
+| `u`          | Unsigned integer (base 10)       | `ft_putunsignbr()`  | No                 |
+| `x`          | Integer (base 16, lowercase)     | `ft_puthex()`       | No                 |
+| `X`          | Integer (base 16, uppercase)     | `ft_puthex()`       | No                 |
+| `%`          | Percent character                | `ft_putchar_fd()`   | Yes                |
 
-##Funções Variádicas
-1. O Que São Funções Variádicas?
-   Funções variádicas são aquelas que podem receber um número variável de argumentos. Em C, essas funções são implementadas utilizando a biblioteca <stdarg.h>, que fornece ferramentas para manipular os argumentos passados para a função.
+## Variadic Functions
+1. **What are Variadic Functions?**
+   Variadic functions are those that can receive a variable number of arguments. In C, these functions are implemented using the `<stdarg.h>` library, which provides tools for handling the arguments passed to the function.
 
-2. Como Funciona o Armazenamento de Argumentos?
-   Quando uma função é chamada, os argumentos são armazenados na pilha de memória em ordem inversa, ou seja, o primeiro argumento é armazenado na última posição e o último argumento é armazenado na primeira posição.
+2. **How Are Arguments Stored?**
+   When a function is called, the arguments are stored on the memory stack in reverse order, meaning the first argument is stored last and the last argument is stored first.
 
-3. Acessando os Argumentos Variádicos
-   Para acessar os argumentos passados para uma função variádica, utilizamos as macros definidas em <stdarg.h>, como:
+3. **Accessing Variadic Arguments**
+   To access the arguments passed to a variadic function, we use the macros defined in `<stdarg.h>`, such as:
 
-### Funções Variádicas
+### Variadic Functions
 
-- **`va_start(va_list args, last)`**: Inicializa o ponteiro `args` para acessar os argumentos. O segundo parâmetro, `last`, é o último argumento fixo da função.
-- **`va_arg(va_list args, tipo)`**: Acessa o próximo argumento da lista, de acordo com o tipo especificado.
-- **`va_end(va_list args)`**: Finaliza o uso do ponteiro `args`, liberando os recursos.
+- **`va_start(va_list args, last)`**: Initializes the `args` pointer to access the arguments. The second parameter, `last`, is the last fixed argument of the function.
+- **`va_arg(va_list args, type)`**: Accesses the next argument in the list, according to the specified type.
+- **`va_end(va_list args)`**: Ends the use of the `args` pointer, freeing the resources.
 
-
-4. Para declarar uma função variádica, utilizamos a seguinte sintaxe:
+4. To declare a variadic function, we use the following syntax:
   ```c
-   tipo_de_retorno nome_da_função(tipo_de_dado nome_do_argumento, ...);
+   return_type function_name(data_type argument_name, ...);
